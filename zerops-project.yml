@@ -1,0 +1,44 @@
+#yamlPreprocessor=on
+project:
+  name: wodpress
+
+services:
+  - hostname: wpdb
+    type: mariadb@10.6
+    mode: NON_HA
+    priority: 10
+
+  - hostname: wp01
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      cpuMode: SHARED
+      minCpu: 1
+      maxCpu: 2
+      minRam: 0.25
+      maxRam: 1
+      minDisk: 1
+      maxDisk: 10
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 01
+      WORDPRESS_URL: ${zeropsSubdomain}
+
+      WORDPRESS_CZECHITAS_EMAIL: "pavel.francr@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: <@generateRandomString(<8>)>
+      WORDPRESS_ADMIN_EMAIL: "p.franc@gmail.com"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: <@generateRandomString(<8>)>
+
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+

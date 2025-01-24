@@ -1,0 +1,43 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name _;  # Consider specifying your actual domain here if possible
+
+    # Be sure that you set up a correct document root!
+    # Assuming WordPress is installed directly under /var/www/public
+    root /var/www/wordpress;
+
+    index index.php index.html index.htm;  # Ensure Nginx looks for index.php first
+
+    location / {
+        # First attempt to serve request as file, then as directory, then fall back to index.php
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    # Pass PHP scripts to FastCGI server
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        # With php-fpm (or other unix sockets):
+        fastcgi_pass unix:{{.PhpSocket}};
+        # With php-cgi (or other tcp sockets):
+        # fastcgi_pass 127.0.0.1:9000;
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    # Deny access to sensitive files
+    location ~ /\.ht {
+        deny all;
+    }
+
+    # Optimize serving of static files
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires max;
+        log_not_found off;
+    }
+
+    access_log syslog:server=unix:/dev/log,facility=local1 default_short;
+    error_log syslog:server=unix:/dev/log,facility=local1;
+}
