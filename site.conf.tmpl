@@ -1,12 +1,13 @@
+map $host $site_root {
+    ~^(?<site>wp[0-9]+\.wordpress\.czechitas\.online)$ /var/www/public/$site;
+    default /var/www/public/wordpress.czechitas.online;
+}
+
 server {
     listen 80;
     listen [::]:80;
-
-    server_name _;  # Consider specifying your actual domain here if possible
-
-    # Be sure that you set up a correct document root!
-    # Assuming WordPress is installed directly under /var/www/public
-    root /var/www/wordpress;
+    server_name _;
+    root $site_root;
 
     index index.php index.html index.htm;  # Ensure Nginx looks for index.php first
 
