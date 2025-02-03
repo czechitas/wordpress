@@ -15,7 +15,7 @@ services:
     mode: NON_HA
     priority: 10
    
-  - hostname: wpapp
+  - hostname: wp1
     type: php-nginx@8.3
     priority: 1
     buildFromGit: https://github.com/czechitas/wordpress@multisite
@@ -33,37 +33,68 @@ services:
     mount:
       - wpstorage
     envSecrets:
-      CZECHITAS_PASSWORD: <@generateRandomString(<8>)>
-      WP01_PASSWORD: <@generateRandomString(<8>)>
-      WP02_PASSWORD: <@generateRandomString(<8>)>
-      WP03_PASSWORD: <@generateRandomString(<8>)>
-      WP04_PASSWORD: <@generateRandomString(<8>)>
-      WP05_PASSWORD: <@generateRandomString(<8>)>
-      WP06_PASSWORD: <@generateRandomString(<8>)>
-      WP07_PASSWORD: <@generateRandomString(<8>)>
-      WP08_PASSWORD: <@generateRandomString(<8>)>
-      WP09_PASSWORD: <@generateRandomString(<8>)>
-      WP10_PASSWORD: <@generateRandomString(<8>)>
-      WP11_PASSWORD: <@generateRandomString(<8>)>
-      WP12_PASSWORD: <@generateRandomString(<8>)>
-      WP13_PASSWORD: <@generateRandomString(<8>)>
-      WP14_PASSWORD: <@generateRandomString(<8>)>
-      WP15_PASSWORD: <@generateRandomString(<8>)>
-      WP16_PASSWORD: <@generateRandomString(<8>)>
-      WP17_PASSWORD: <@generateRandomString(<8>)>
-      WP18_PASSWORD: <@generateRandomString(<8>)>
-      WP19_PASSWORD: <@generateRandomString(<8>)>
-      WP20_PASSWORD: <@generateRandomString(<8>)>
-      WP21_PASSWORD: <@generateRandomString(<8>)>
-      WP22_PASSWORD: <@generateRandomString(<8>)>
-      WP23_PASSWORD: <@generateRandomString(<8>)>
-      WP24_PASSWORD: <@generateRandomString(<8>)>
-      WP25_PASSWORD: <@generateRandomString(<8>)>
-      WP26_PASSWORD: <@generateRandomString(<8>)>
-      WP27_PASSWORD: <@generateRandomString(<8>)>
-      WP28_PASSWORD: <@generateRandomString(<8>)>
-      WP29_PASSWORD: <@generateRandomString(<8>)>
-      WP30_PASSWORD: <@generateRandomString(<8>)>
+      CZECHITAS_PASSWORD: xxxxxxxxxx
+      ADMIN_PASSWORD: xxxxxxxxxx
+    
+      WP_AUTH_KEY: <@generateRandomString(<64>)>
+      WP_AUTH_SALT: <@generateRandomString(<64>)>
+      WP_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WP_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WP_NONCE_KEY: <@generateRandomString(<64>)>
+      WP_NONCE_SALT: <@generateRandomString(<64>)>
+      WP_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WP_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  - hostname: wp2
+    type: php-nginx@8.3
+    priority: 1
+    buildFromGit: https://github.com/czechitas/wordpress@multisite
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      cpuMode: SHARED
+      minCpu: 1
+      maxCpu: 3
+      minRam: 0.25
+      maxRam: 10
+      minDisk: 1
+      maxDisk: 10
+    minContainers: 1
+    maxContainers: 1
+    mount:
+      - wpstorage
+    envSecrets:
+      CZECHITAS_PASSWORD: xxxxxxxxxx
+      ADMIN_PASSWORD: xxxxxxxxxx
+    
+      WP_AUTH_KEY: <@generateRandomString(<64>)>
+      WP_AUTH_SALT: <@generateRandomString(<64>)>
+      WP_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WP_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WP_NONCE_KEY: <@generateRandomString(<64>)>
+      WP_NONCE_SALT: <@generateRandomString(<64>)>
+      WP_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WP_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  - hostname: wp3
+    type: php-nginx@8.3
+    priority: 1
+    buildFromGit: https://github.com/czechitas/wordpress@multisite
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      cpuMode: SHARED
+      minCpu: 1
+      maxCpu: 3
+      minRam: 0.25
+      maxRam: 10
+      minDisk: 1
+      maxDisk: 10
+    minContainers: 1
+    maxContainers: 1
+    mount:
+      - wpstorage
+    envSecrets:
+      CZECHITAS_PASSWORD: xxxxxxxxxx
+      ADMIN_PASSWORD: xxxxxxxxxx
     
       WP_AUTH_KEY: <@generateRandomString(<64>)>
       WP_AUTH_SALT: <@generateRandomString(<64>)>

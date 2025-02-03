@@ -1,5 +1,5 @@
 zerops:
-  - setup: wpapp
+  - setup: base
     build:
       os: ubuntu
       base: php@8.3
@@ -23,6 +23,7 @@ zerops:
       base: php-nginx@8.3
       envVariables:
         HTTP_X_FORWARDED_PROTO: https
+        WP_HOSTNAME: ${hostname}
         WP_DB_HOST: ${wpdb_hostname}
         WP_DB_PASSWORD: ${wpdb_password}
         WP_DB_USER: ${wpdb_user}
@@ -35,7 +36,15 @@ zerops:
         - sudo -E -u zerops -- bash ./scripts/init.sh
       siteConfigPath: site.conf.tmpl
       crontab:
-        - command: "tar -czvf /mnt/wpstorage/backup.tar.gz /var/www/public"
+        - command: "tar -czvf /mnt/wpstorage/backup-$hostname.tar.gz /var/www/public"
           timing: "0 1 * * *"
           workingDir: /var/www/
 
+  - setup: wp1
+    extends: base
+
+  - setup: wp2
+    extends: base
+
+  - setup: wp3
+    extends: base
