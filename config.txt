@@ -9,11 +9,10 @@ wp1;wp06.wordpress.czechitas.online;Czechitas Wordpress 06;admin;wordpress@czech
 wp1;wp07.wordpress.czechitas.online;Czechitas Wordpress 07;admin;wordpress@czechitas.cz
 wp1;wp08.wordpress.czechitas.online;Czechitas Wordpress 08;admin;wordpress@czechitas.cz
 wp1;wp09.wordpress.czechitas.online;Czechitas Wordpress 09;admin;wordpress@czechitas.cz
-wp1;wp0a.wordpress.czechitas.online;Czechitas Wordpress 0a;admin;wordpress@czechitas.cz
-wp1;wp0b.wordpress.czechitas.online;Czechitas Wordpress 0b;admin;wordpress@czechitas.cz
+wp1;wp10.wordpress.czechitas.online;Czechitas Wordpress 10;admin;wordpress@czechitas.cz
+wp1;wp11.wordpress.czechitas.online;Czechitas Wordpress 11;admin;wordpress@czechitas.cz
 
 # Server WP2
-wp2;wp11.wordpress.czechitas.online;Czechitas Wordpress 11;admin;wordpress@czechitas.cz
 wp2;wp12.wordpress.czechitas.online;Czechitas Wordpress 12;admin;wordpress@czechitas.cz
 wp2;wp13.wordpress.czechitas.online;Czechitas Wordpress 13;admin;wordpress@czechitas.cz
 wp2;wp14.wordpress.czechitas.online;Czechitas Wordpress 14;admin;wordpress@czechitas.cz
@@ -22,12 +21,11 @@ wp2;wp16.wordpress.czechitas.online;Czechitas Wordpress 16;admin;wordpress@czech
 wp2;wp17.wordpress.czechitas.online;Czechitas Wordpress 17;admin;wordpress@czechitas.cz
 wp2;wp18.wordpress.czechitas.online;Czechitas Wordpress 18;admin;wordpress@czechitas.cz
 wp2;wp19.wordpress.czechitas.online;Czechitas Wordpress 19;admin;wordpress@czechitas.cz
-wp2;wp1a.wordpress.czechitas.online;Czechitas Wordpress 1a;admin;wordpress@czechitas.cz
-wp2;wp1b.wordpress.czechitas.online;Czechitas Wordpress 1b;admin;wordpress@czechitas.cz
+wp2;wp20.wordpress.czechitas.online;Czechitas Wordpress 20;admin;wordpress@czechitas.cz
+wp2;wp21.wordpress.czechitas.online;Czechitas Wordpress 21;admin;wordpress@czechitas.cz
+wp2;wp22.wordpress.czechitas.online;Czechitas Wordpress 22;admin;wordpress@czechitas.cz
 
 # Server WP2
-wp3;wp21.wordpress.czechitas.online;Czechitas Wordpress 21;admin;wordpress@czechitas.cz
-wp3;wp22.wordpress.czechitas.online;Czechitas Wordpress 22;admin;wordpress@czechitas.cz
 wp3;wp23.wordpress.czechitas.online;Czechitas Wordpress 23;admin;wordpress@czechitas.cz
 wp3;wp24.wordpress.czechitas.online;Czechitas Wordpress 24;admin;wordpress@czechitas.cz
 wp3;wp25.wordpress.czechitas.online;Czechitas Wordpress 25;admin;wordpress@czechitas.cz
@@ -35,5 +33,7 @@ wp3;wp26.wordpress.czechitas.online;Czechitas Wordpress 26;admin;wordpress@czech
 wp3;wp27.wordpress.czechitas.online;Czechitas Wordpress 27;admin;wordpress@czechitas.cz
 wp3;wp28.wordpress.czechitas.online;Czechitas Wordpress 28;admin;wordpress@czechitas.cz
 wp3;wp29.wordpress.czechitas.online;Czechitas Wordpress 29;admin;wordpress@czechitas.cz
-wp3;wp2a.wordpress.czechitas.online;Czechitas Wordpress 2a;admin;wordpress@czechitas.cz
-wp3;wp2b.wordpress.czechitas.online;Czechitas Wordpress 2b;admin;wordpress@czechitas.cz
+wp3;wp30.wordpress.czechitas.online;Czechitas Wordpress 30;admin;wordpress@czechitas.cz
+wp3;wp31.wordpress.czechitas.online;Czechitas Wordpress 31;admin;wordpress@czechitas.cz
+wp3;wp32.wordpress.czechitas.online;Czechitas Wordpress 32;admin;wordpress@czechitas.cz
+wp3;wp33.wordpress.czechitas.online;Czechitas Wordpress 33;admin;wordpress@czechitas.cz
