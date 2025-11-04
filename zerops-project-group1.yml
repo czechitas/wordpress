@@ -1,0 +1,303 @@
+#yamlPreprocessor=on
+project:
+  name: wordpress-group-1
+
+services:
+  # The database for all 11 WP instances in this project
+  - hostname: wpdb
+    type: mariadb@10.6
+    mode: NON_HA
+    priority: 10
+
+  # --- WordPress Instance 1 ---
+  - hostname: wp01
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling:
+      cpuMode: SHARED
+      minCpu: 1
+      maxCpu: 3
+      minRam: 1
+      maxRam: 10
+      minDisk: 1
+      maxDisk: 10
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 01
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 2 ---
+  - hostname: wp02
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 02
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 3 ---
+  - hostname: wp03
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 03
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 4 ---
+  - hostname: wp04
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 04
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 5 ---
+  - hostname: wp05
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 05
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 6 ---
+  - hostname: wp06
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 06
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 7 ---
+  - hostname: wp07
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 07
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 8 ---
+  - hostname: wp08
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 08
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 9 ---
+  - hostname: wp09
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 09
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 10 ---
+  - hostname: wp0a
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 0a
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
+
+  # --- WordPress Instance 11 ---
+  - hostname: wp0b
+    type: php-nginx@8.3
+    buildFromGit: https://github.com/czechitas/wordpress
+    enableSubdomainAccess: true
+    verticalAutoscaling: { cpuMode: SHARED, minCpu: 1, maxCpu: 3, minRam: 1, maxRam: 10, minDisk: 1, maxDisk: 10 }
+    minContainers: 1
+    maxContainers: 1
+    envSecrets:
+      WORDPRESS_TITLE: Czechitas WordPress 0b
+      WORDPRESS_URL: ${zeropsSubdomain}
+      WORDPRESS_CZECHITAS_EMAIL: "wordpress@czechitas.cz"
+      WORDPRESS_CZECHITAS_USER: czechitas
+      WORDPRESS_CZECHITAS_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_ADMIN_EMAIL: "michaela.popova@czechitas.cz"
+      WORDPRESS_ADMIN_USER: "admin"
+      WORDPRESS_ADMIN_PASSWORD: CzechitasVyuka2025
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
