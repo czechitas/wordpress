@@ -57,3 +57,47 @@ zerops:
     extends: base
   - setup: wp0b
     extends: base
+  - setup: wp11
+    extends: base
+  - setup: wp12
+    extends: base
+  - setup: wp13
+    extends: base
+  - setup: wp14
+    extends: base
+  - setup: wp15
+    extends: base
+  - setup: wp16
+    extends: base
+  - setup: wp17
+    extends: base
+  - setup: wp18
+    extends: base
+  - setup: wp19
+    extends: base
+  - setup: wp1a
+    extends: base
+  - setup: wp1b
+    extends: base
+  - setup: wp21
+    extends: base
+  - setup: wp22
+    extends: base
+  - setup: wp23
+    extends: base
+  - setup: wp24
+    extends: base
+  - setup: wp25
+    extends: base
+  - setup: wp26
+    extends: base
+  - setup: wp27
+    extends: base
+  - setup: wp28
+    extends: base
+  - setup: wp29
+    extends: base
+  - setup: wp2a
+    extends: base
+  - setup: wp2b
+    extends: base
