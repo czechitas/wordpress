@@ -27,7 +27,7 @@ zerops:
         WORDPRESS_DB_USER: ${wpdb_user}
 
       prepareCommands:
-        - sudo apt-get update && apt-get install -y mariadb-client
+        - sudo apt-get update && sudo apt-get install -y mariadb-client
         - curl -sSO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         - sudo chmod +x wp-cli.phar
         - sudo mv wp-cli.phar /usr/local/bin/wp
@@ -36,4 +36,24 @@ zerops:
       siteConfigPath: site.conf.tmpl
 
   - setup: wp01
+    extends: base
+  - setup: wp02
+    extends: base
+  - setup: wp03
+    extends: base
+  - setup: wp04
+    extends: base
+  - setup: wp05
+    extends: base
+  - setup: wp06
+    extends: base
+  - setup: wp07
+    extends: base
+  - setup: wp08
+    extends: base
+  - setup: wp09
+    extends: base
+  - setup: wp0a
+    extends: base
+  - setup: wp0b
     extends: base
