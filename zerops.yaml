@@ -6,8 +6,8 @@ zerops:
       envVariables:
       prepareCommands:
         - curl -sSO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        - chmod +x wp-cli.phar
-        - mv wp-cli.phar /usr/local/bin/wp
+        - sudo chmod +x wp-cli.phar
+        - sudo mv wp-cli.phar /usr/local/bin/wp
         - wp --allow-root --info
       buildCommands:
         - bash ./scripts/build.sh
@@ -28,10 +28,10 @@ zerops:
         WP_DB_PASSWORD: ${wpdb_password}
         WP_DB_USER: ${wpdb_user}
       prepareCommands:
-        - apt-get update && apt-get install -y mariadb-client
+        - sudo apt-get update && sudo apt-get install -y mariadb-client
         - curl -sSO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        - chmod +x wp-cli.phar
-        - mv wp-cli.phar /usr/local/bin/wp
+        - sudo chmod +x wp-cli.phar
+        - sudo mv wp-cli.phar /usr/local/bin/wp
       initCommands:
         - sudo -E -u zerops -- bash ./scripts/init.sh
       siteConfigPath: site.conf.tmpl
